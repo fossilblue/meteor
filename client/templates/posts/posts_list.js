@@ -4,5 +4,3 @@ Template.postsList.helpers({
         return Posts.find({},{sort:{submitted:-1}});
     }
 });
-
-     
