@@ -21,8 +21,7 @@ Package.onUse(function(api,where) {
 });
 
 Package.onTest(function(api) {
-  api.use('ecmascript');
-  api.use('tinytest');
-  api.use('fossilblue:errors');
-  api.addFiles('errors-tests.js');
+  api.use('fossilblue:errors','client');
+  api.use(['tinytest','test-helpers'],'client');
+  api.addFiles('errors-tests.js','client');
 });
