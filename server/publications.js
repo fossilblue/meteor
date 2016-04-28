@@ -3,7 +3,7 @@ Meteor.publish('posts', function(){
     });
 
 
-Meteor.publish('comments', function() {
-  check(postId,String);
-  return Comments.find({postId:postId});
-});
+    Meteor.publish('comments', function(postId) {
+      check(postId, String);
+      return Comments.find({postId: postId});
+    });

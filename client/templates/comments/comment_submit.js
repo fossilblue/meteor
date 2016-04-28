@@ -8,8 +8,7 @@ Template.commentSubmit.helpers({
       return Session.get('commentSubmitErrors')[field];
   },
   errorClass:function(field){
-    return !! Session.get('commentSubmitErrors')[field] ? 'has-error':'';
-
+    return !!Session.get('commentSubmitErrors')[field] ? 'has-error':'';
   }
 });
 
@@ -24,18 +23,19 @@ Template.commentSubmit.events({
     var comment = {body:$body.val(),
                   postId:template.data._id
                 };
-    var errors ={};
+    var errors = {};
     if(!comment.body){
       errors.body = "Please write some comment";
       return Session.set('commentSubmitErrors',errors);
     }
-
+    
     Meteor.call("commentInsert", comment, function(error, commentId){
       if(error){
         throwError(error.reason);
-        
+
       } else{
         $body.val('');
+
 
       }
     });
