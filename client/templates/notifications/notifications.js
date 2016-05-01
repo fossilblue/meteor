@@ -1,10 +1,10 @@
 
 Template.notifications.helpers({
   notifications:function(){
-    return Notification.find({userId:Meteor.userId(),read:false});
+    return Notifications.find({userId:Meteor.userId(),read:false});
   },
-  noticationCount:function(){
-    return Notification.find({userID:Meteor.userId(),read:false}).count;
+  notificationCount:function(){
+    return Notifications.find({userId:Meteor.userId(),read:false}).count();
   }
 });
 
@@ -14,9 +14,9 @@ Template.notificationItem.helpers({
   }
 });
 
-Tempate.notificationItem.events({
+Template.notificationItem.events({
   'click a': function(){
-    Notification.update(this.id,{$set:{read:true}});
+    Notifications.update(this._id,{$set:{read:true}});
 
   }
 });
