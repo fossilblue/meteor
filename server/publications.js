@@ -1,10 +1,10 @@
-Meteor.publish('posts', function(sort, limit){
-    /*check(options,{
+Meteor.publish('posts', function(options){
+    check(options,{
       sort: Object,
       limit:Number
     });
-*/
-    return Posts.find({},{sort:sort, limit:limit});
+
+    return Posts.find({},options);
     });
 
 
