@@ -6,9 +6,9 @@
         {{#if nextPath}}
         <a class="load-more" href="{{nextPath}}">Load More</a>
         {{else}}
-        {{#unless ready}}
+        {{#if ready}}
           {{> spinner}}
-        {{/unless}}
+        {{/if}}
         {{/if}}
 
 
